@@ -48,6 +48,11 @@ test('Lighthouse lab diagnostics do not mislabel TBT as measured INP', () => {
   assert.equal(findings.length, 2);
   assert.match(findings.find(f => f.checkId === 'lab-tbt').recommendation, /not a measurement of field INP/);
 });
+test('Lighthouse audits with non-array detail items are summarised without failing', () => {
+  const sample = summariseLighthouse({ requestedUrl: 'https://example.com/', categories: { performance: { score: 0.5 } },
+    audits: { 'insight': { title: 'Insight', score: 0, scoreDisplayMode: 'metricSavings', details: { type: 'list', items: { sections: [] } } } } });
+  assert.deepEqual(sample.diagnostics[0].items, []);
+});
 test('CrUX absence stays unknown, and origin fallback is disclosed', async () => {
   assert.equal((await collectCrux('https://example.com/')).status, 'not_assessed');
   const calls = [];

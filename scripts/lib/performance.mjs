@@ -35,7 +35,7 @@ export function summariseLighthouse(lhr, { url, device, run, evidenceFile } = {}
       displayValue: audit.displayValue, score: audit.score,
       estimatedSavingsMs: audit.details?.overallSavingsMs ?? null,
       estimatedSavingsBytes: audit.details?.overallSavingsBytes ?? null,
-      items: (audit.details?.items ?? []).slice(0, 5).map(item => ({
+      items: (Array.isArray(audit.details?.items) ? audit.details.items : []).slice(0, 5).map(item => ({
         url: item.url, wastedMs: item.wastedMs, wastedBytes: item.wastedBytes,
         node: item.node?.snippet, label: item.label
       }))
