@@ -1,0 +1,47 @@
+{
+  "name": "search-audit-skill",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local evidence-led SEO, AEO and GEO audits with free tools and optional per-user Search Console.",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "bin": {
+    "search-audit": "scripts/audit.mjs"
+  },
+  "scripts": {
+    "audit": "node scripts/audit.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "demo": "node scripts/demo.mjs",
+    "skill:install": "node scripts/install.mjs"
+  },
+  "dependencies": {
+    "cheerio": "1.2.0",
+    "chrome-launcher": "1.2.2",
+    "fast-xml-parser": "5.11.2",
+    "lighthouse": "13.5.0",
+    "playwright": "1.64.1",
+    "robots-parser": "3.0.1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nadeem615/search-audit.git"
+  },
+  "homepage": "https://github.com/nadeem615/search-audit#readme",
+  "bugs": {
+    "url": "https://github.com/nadeem615/search-audit/issues"
+  },
+  "keywords": [
+    "agent-skill",
+    "codex",
+    "claude-code",
+    "seo",
+    "aeo",
+    "geo",
+    "lighthouse",
+    "website-audit",
+    "search-console"
+  ]
+}

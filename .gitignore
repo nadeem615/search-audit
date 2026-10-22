@@ -1,0 +1,26 @@
+node_modules/
+.search-audit*/
+audit-output/
+demo-report/
+tests/.tmp*/
+.ci-smoke/
+*.log
+.env
+.env.*
+!.env.example
+oauth-client*.json
+client_secret*.json
+credentials*.json
+*.dpapi
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+
+# Project-local installations and retained installer data
+.agents/skills/search-audit/
+.claude/skills/search-audit/
+.agents/skill-backups/
+.claude/skill-backups/
+.agents/skill-install-staging/
+.claude/skill-install-staging/

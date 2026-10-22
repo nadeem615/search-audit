@@ -1,0 +1,4 @@
+interface:
+  display_name: "Search Audit"
+  short_description: "Evidence-led SEO, AEO and GEO audits with free tools"
+  default_prompt: "Use $search-audit to audit this website and generate a branded report with an actionable improvement plan."
