@@ -8,13 +8,15 @@ No Semrush API, paid SEO database, or separate model API key is required. Your e
 
 ## Install
 
-Requirements: **Node.js 22.19 or newer**, npm and Git. Chrome/Chromium is needed for rendering, Lighthouse and PDF; an installed supported browser is detected automatically.
+Requirements: **Node.js 22.19 or newer** and npm. Git is needed for the clone method below. Chrome/Chromium is needed for rendering, Lighthouse and PDF; an installed supported browser is detected automatically.
 
 ```sh
 git clone https://github.com/nadeem615/search-audit.git
 cd search-audit
 node scripts/install.mjs --agent both
 ```
+
+Alternatively, [download the latest release ZIP](https://github.com/nadeem615/search-audit/releases/latest), extract it, open a terminal in its `search-audit` folder, and run the same installer command.
 
 Choose one agent with `--agent codex` or `--agent claude`. The installer copies the skill and installs its npm dependencies. It leaves existing installations alone unless `--force` is supplied; forced replacements retain a backup. It does not install the Codex or Claude Code application.
 
