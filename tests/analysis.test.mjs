@@ -60,3 +60,17 @@ test('CrUX absence stays unknown, and origin fallback is disclosed', async () =>
   assert.equal(calls[1].origin, 'https://example.com');
   assert.ok(!JSON.stringify(result).includes('synthetic'));
 });
+
+test('summariseLighthouse tolerates insight audits whose details.items is not an array', () => {
+  const summary = summariseLighthouse({
+    requestedUrl: 'https://example.com/',
+    audits: {
+      'network-dependency-tree-insight': { title: 'Network dependency tree', score: 0, scoreDisplayMode: 'metricSavings', details: { type: 'network-tree', items: { chains: {} } } },
+      'unused-javascript': { title: 'Unused JS', score: 0.5, scoreDisplayMode: 'metricSavings', details: { items: [{ url: 'https://example.com/a.js', wastedBytes: 10 }] } }
+    },
+    categories: {}
+  }, { device: 'mobile', run: 1 });
+  const insight = summary.diagnostics.find(item => item.id === 'network-dependency-tree-insight');
+  assert.deepEqual(insight.items, []);
+  assert.equal(summary.diagnostics.find(item => item.id === 'unused-javascript').items[0].wastedBytes, 10);
+});
